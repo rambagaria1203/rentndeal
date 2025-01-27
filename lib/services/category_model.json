@@ -1,0 +1,75 @@
+{
+    "categories": [
+        {
+            "name": "Flats",
+            "subcategory": [
+                "1 RHK",
+                "1 BHK",
+                "2 BHK",
+                "3 BHK",
+                "4 BHK",
+                "5 BHK",
+                "Other"
+            ]
+        },
+        {
+            "name": "Real Estate",
+            "subcategory": [
+                "Shop",
+                "Land",
+                "House",
+                "Other"
+            ]
+        },
+        {
+            "name": "Electronics",
+            "subcategory": [
+                "Mobile",
+                "Tab",
+                "Laptop",
+                "Speakers",
+                "Watches"
+            ]
+        },
+        {
+            "name": "Appliances",
+            "subcategory": [
+                "Refrigerator",
+                "Air Conditioner",
+                "Washing Machine",
+                "Televisions",
+                "Microwave Oven",
+                "Water Purifier",
+                "Air Cooler"
+            ]
+        },
+        {
+            "name": "Furniture",
+            "subcategory": [
+                "Bed",
+                "Chair",
+                "Sofa",
+                "Table",
+                "Wardrobe",
+                "Shoes Rack"
+            ]
+        },
+        {
+            "name": "Vehicle",
+            "subcategory": [
+                "Bicycle",
+                "Scooty",
+                "Bike",
+                "Car"
+            ]
+        },
+        {
+            "name": "Others",
+            "subcategory": [
+
+
+            ]
+        }
+
+    ]
+}
