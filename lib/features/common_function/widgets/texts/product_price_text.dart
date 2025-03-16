@@ -3,7 +3,7 @@ import 'package:rentndeal/constants/consts.dart';
 class ProductPriceText extends StatelessWidget {
   const ProductPriceText({
     super.key,
-    this.currencySign = '\$ ',
+    this.currencySign = '₹ ',
     required this.price,
     this.isLarge = false,
     this.maxLines = 1,

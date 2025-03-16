@@ -22,25 +22,26 @@ class CategoryS extends StatelessWidget {
               pinned: true,
               floating: true,
               backgroundColor: HHelperFunctions.isDarkMode(context) ? CColors.black : CColors.white,
-              expandedHeight: 440,
+              //expandedHeight: 440,
+              expandedHeight: 150,
               flexibleSpace: Padding(
                 padding: const EdgeInsets.all(CSizes.defaultSpace),
                 child: ListView(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  children: [
-                    const SizedBox(height: CSizes.spaceBtwItems),
-                    const SearchBarContainer(hintText: 'Search in Store', showBorder: true, showBackground: false, padding: EdgeInsets.zero),
-                    const SizedBox(height: CSizes.spaceBtwSections),
+                  children: const [
+                    SizedBox(height: CSizes.spaceBtwItems),
+                    SearchBarContainer(hintText: 'Search in Store', showBorder: true, showBackground: false, padding: EdgeInsets.zero),
+                    SizedBox(height: CSizes.spaceBtwSections),
       
                     /// Featured Brands
-                    SectionHeading(title: 'Featured Brands', onPressed: (){}),
-                    const SizedBox(height: CSizes.spaceBtwItems / 2),
-                    ///
-                    /// Containers for featured Products
-                    GridViewLayout(itemCount: 4, mainAxisExtent: 80, itemBuilder: (_, index){
-                      return const BrandCard(showBorder: true,);
-                    })
+                    // SectionHeading(title: 'Featured Brands', onPressed: (){}),
+                    // const SizedBox(height: CSizes.spaceBtwItems / 2),
+                    // ///
+                    // /// Containers for featured Products
+                    // GridViewLayout(itemCount: 4, mainAxisExtent: 80, itemBuilder: (_, index){
+                    //   return const BrandCard(showBorder: true,);
+                    // })
                     
                   ],
                 )

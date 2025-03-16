@@ -1,16 +1,9 @@
 import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:rentndeal/backend_services/models/user_model.dart';
-import 'package:rentndeal/backend_services/repositories/authentication_repository.dart';
 import 'package:rentndeal/constants/consts.dart';
-import 'package:rentndeal/helpers/exceptions/firebase_exceptions.dart';
-import 'package:rentndeal/helpers/exceptions/format_exception.dart';
-import 'package:rentndeal/helpers/exceptions/platform_exceptions.dart';
-
 class UserRepository extends GetxController {
   static UserRepository get instance => Get.find();
 

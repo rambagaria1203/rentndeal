@@ -30,8 +30,14 @@ class CategoryRepository extends GetxController {
   // Get sub Categories
   Future<List<CategoryModel>> getSubCategories(String categoryId) async {
     try {
+      print("🔍 Querying Firestore: Looking for subcategories where ParentId = $categoryId");
       
       final snapshot = await _db.collection('categories').where('ParentId', isEqualTo: categoryId).get();
+      if (snapshot.docs.isEmpty) {
+      print("⚠️ No subcategories found for ParentId: $categoryId");
+    } else {
+      print("✅ Subcategories found: ${snapshot.docs.map((e) => e['Name']).toList()}");
+    }
       final result = snapshot.docs.map((e) => CategoryModel.fromSnapshot(e)).toList();
       return result;
 

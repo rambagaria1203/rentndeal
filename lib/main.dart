@@ -1,9 +1,4 @@
-import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:get_storage/get_storage.dart';
-import 'package:rentndeal/app.dart';
-import 'package:rentndeal/backend_services/repositories/authentication_repository.dart';
 import 'constants/consts.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 Future<void>  main() async {
 

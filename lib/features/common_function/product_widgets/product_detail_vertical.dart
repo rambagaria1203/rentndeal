@@ -1,6 +1,3 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:rentndeal/backend_services/models/product_model.dart';
 import 'package:rentndeal/constants/consts.dart';
 import 'package:rentndeal/features/common_function/favourite_icon/favourite_icon.dart';
@@ -63,8 +60,8 @@ class ProductDetailsVertical extends StatelessWidget {
               child: Column(
                 children: [
                   ProductTitleText(title: product.productName, smallSize: true),
-                  const SizedBox(height: CSizes.spaceBtwItems / 2),
-                  const BrandTitleWithVerifiedIcon(title: 'Nike'),
+                  const SizedBox(height: CSizes.spaceBtwItems / 1.5),
+                  ProductLocationInWidget(location: product.productLocation.isNotEmpty ? product.productLocation : "Pune, Maharashtra, India"),
                 ],
               )
             ),

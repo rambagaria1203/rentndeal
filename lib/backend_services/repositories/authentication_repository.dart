@@ -1,19 +1,5 @@
 import 'dart:core';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:get_storage/get_storage.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:rentndeal/backend_services/repositories/user_repository.dart';
 import 'package:rentndeal/constants/consts.dart';
-import 'package:rentndeal/features/location/screen/auth_location.dart';
-import 'package:rentndeal/helpers/exceptions/firebase_auth_exceptions.dart';
-import 'package:rentndeal/helpers/exceptions/firebase_exceptions.dart';
-import 'package:rentndeal/helpers/exceptions/format_exception.dart';
-import 'package:rentndeal/helpers/exceptions/platform_exceptions.dart';
-import 'package:rentndeal/features/Authentication/screen/EmailVerify/verify_email.dart';
-import 'package:rentndeal/helpers/local_storage/storage_utility.dart';
 
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();

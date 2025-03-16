@@ -19,7 +19,7 @@ class CategoryShowCase extends StatelessWidget {
       child: Column(
         children: [
           /// Brand with Product count
-          const BrandCard(showBorder: false),
+          //const BrandCard(showBorder: false),
     
           /// Brand Top 3 Product Images
           Row(children: images.map((image) => categoryTopProductImageWidget(image, context)).toList()),

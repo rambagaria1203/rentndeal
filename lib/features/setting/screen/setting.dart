@@ -2,7 +2,7 @@ import 'package:rentndeal/backend_services/data/dummy_data.dart';
 import 'package:rentndeal/backend_services/repositories/authentication_repository.dart';
 import 'package:rentndeal/backend_services/repositories/category_repository.dart';
 import 'package:rentndeal/constants/consts.dart';
-import 'package:rentndeal/features/location/screen/auth_location.dart';
+import 'package:rentndeal/features/location/screen/first_location.dart';
 import 'package:rentndeal/features/setting/common_widget/user_profile_tile.dart';
 import 'package:rentndeal/features/vendor_page/screen/my_product.dart';
 

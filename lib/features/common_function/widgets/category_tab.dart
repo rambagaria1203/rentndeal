@@ -25,12 +25,12 @@ class CategoryTab extends StatelessWidget {
         child: Column(
           children: [
             /// Brands
-            const CategoryShowCase(images: [CImages.icProduct, CImages.imgP2, CImages.imgFc2]),
-            const CategoryShowCase(images: [CImages.icProduct, CImages.imgP2, CImages.imgFc2]),
-            const SizedBox(height: CSizes.spaceBtwItems),
+            //const CategoryShowCase(images: [CImages.icProduct, CImages.imgP2, CImages.imgFc2]),
+            //const CategoryShowCase(images: [CImages.icProduct, CImages.imgP2, CImages.imgFc2]),
+           // const SizedBox(height: CSizes.spaceBtwItems),
             /// -- Products
             FutureBuilder(
-              future: categoryController.getCategoryProducts(categoryName: category.name),
+              future: categoryController.getCategoryProducts(categoryName: category.id),
               builder: (context, snapshot) {
                 // Helper function - Handle Loader, No Record or  Error
                 final response = HCloudHelperFunctions.checkMultiRecordState(snapshot: snapshot, loader: const VerticalProductShimmer());
@@ -42,7 +42,7 @@ class CategoryTab extends StatelessWidget {
                   children: [
                     SectionHeading(title: 'You might like', onPressed: () => Get.to(AllProductScreen(
                       title: category.name,
-                      futureMethod: categoryController.getCategoryProducts(categoryName: category.name, limit: -1), ))),
+                      futureMethod: categoryController.getCategoryProducts(categoryName: category.id, limit: -1), ))),
                     const SizedBox(height: CSizes.spaceBtwItems),
                     GridViewLayout(itemCount: products.length, itemBuilder: (_, index) => ProductDetailsVertical(product: products[index]))
                       

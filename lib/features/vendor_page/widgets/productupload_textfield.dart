@@ -1,12 +1,13 @@
 import 'package:rentndeal/constants/consts.dart';
 
-Widget vendorTextField({String? title, String? hint, isPass}) {
+Widget vendorTextField({String? title, String? hint, isPass, controller}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       title!.text.color(black).fontFamily(semibold).size(16).make(),
       5.heightBox,
       TextFormField(
+        controller: controller,
         obscureText: isPass,
         decoration: InputDecoration(
         hintStyle:const TextStyle(fontFamily:semibold,color: textfieldGrey, ),

@@ -1,5 +1,5 @@
 import 'package:rentndeal/constants/consts.dart';
-import 'package:rentndeal/features/location/screen/location.dart';
+import 'package:rentndeal/features/location/screen/main_location.dart';
 import 'package:rentndeal/features/location/controller/location_controller.dart';
 
 class AuthLocationScreen extends StatelessWidget {
@@ -8,6 +8,7 @@ class AuthLocationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final locationController = Get.put(LocationController());
+    precacheImage(const AssetImage(CImages.locationblue), context);
     return Scaffold(
       body: Stack(
           children: [

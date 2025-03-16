@@ -44,14 +44,14 @@ class SubCategoriesScreen extends StatelessWidget {
                       SectionHeading(title: subCategory.name, onPressed: ()=> Get.to(
                         ()=> AllProductScreen(
                           title: subCategory.name,
-                          futureMethod: controller.getSubCategoryProducts(categoryName: subCategory.name, limit: -1)
+                          futureMethod: controller.getSubCategoryProducts(categoryName: subCategory.id, limit: -1)
                         ),
                       )),
                       const SizedBox(height: CSizes.spaceBtwItems / 2),
                           
               
                   FutureBuilder(
-                    future: controller.getSubCategoryProducts(categoryName: subCategory.name),
+                    future: controller.getSubCategoryProducts(categoryName: subCategory.id),
                     builder: (context, snapshot) {
                       final widget = HCloudHelperFunctions.checkMultiRecordState(snapshot: snapshot, loader: loader);
                       if (widget != null) return widget;

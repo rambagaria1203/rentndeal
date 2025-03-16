@@ -1,7 +1,5 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:rentndeal/backend_services/repositories/authentication_repository.dart';
-import 'package:rentndeal/backend_services/repositories/user_repository.dart';
 import 'package:rentndeal/backend_services/models/user_model.dart';
 import 'package:rentndeal/constants/consts.dart';
 import 'package:rentndeal/features/common_function/loaders/loader.dart';
@@ -65,8 +63,6 @@ class UserController extends GetxController {
             location: null,
             profilePicture: userCredentials.user!.photoURL ?? '',
           );
-
-          //save user data
           await userRepository.saveUserData(user);
         }
       }
@@ -170,6 +166,30 @@ class UserController extends GetxController {
       Loaders.errorSnackBar(title: 'OhSnap', message: 'Something went wrong: $e');
     } finally {
       imageUploading.value = false;
+    }
+  }
+
+//-------------------------------------------------User Updated Location----------------------------------------------------------------------------------------------------//
+  Future<void> updateUserLocation(String location, GeoPoint locationGeopoint) async {
+    try {
+      FullScreenLoader.openLoadingDialog('We are updating your information...', CImages.datasave);
+      final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) {
+        FullScreenLoader.stopLoading();
+        return;
+      }
+      Map<String, dynamic> userLocation = {'Location': location, 'LocationGeopoint': locationGeopoint,};
+      await userRepository.updateSingleField(userLocation);
+      user.value.location = location;
+      user.value.locationGeopoint = locationGeopoint;
+      final deviceStorage = GetStorage();
+      deviceStorage.write('isLocationSet', true);
+      FullScreenLoader.stopLoading();
+      Loaders.successSnackBar(title: 'Contratulations', message: 'Your Location has been updated.');
+      Get.offAll(() => const NavigationMenu());
+    } catch (e) {
+      FullScreenLoader.stopLoading();
+      Loaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     }
   }
 

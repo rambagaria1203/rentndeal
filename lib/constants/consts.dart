@@ -105,10 +105,9 @@ export 'package:rentndeal/features/onboarding/controller/onboarding_contoller.da
 
 /// ----- Common ------
 export 'package:rentndeal/features/common_function/text/brand_title_text.dart';
-export 'package:rentndeal/features/common_function/text/brand_title_with_verification.dart';
+export 'package:rentndeal/features/common_function/text/product_location_in_widget.dart';
 
 export 'package:rentndeal/features/common_function/custom_appbar/custom_tabbar.dart';
-export 'package:rentndeal/features/common_function/product_widgets/brand_card.dart';
 
 export 'package:rentndeal/features/common_function/product_widgets/category_show_case.dart';
 
@@ -138,14 +137,30 @@ export 'package:rentndeal/features/product/widget/rating_progress_indicator.dart
 /// There is Proper Step by step class Import
 
 // Flutter Packages
+export 'package:rentndeal/app.dart';
+export 'package:flutter/services.dart';
+export 'package:flutter/foundation.dart';
+export 'package:get_storage/get_storage.dart';
+export 'package:google_sign_in/google_sign_in.dart';
+
 
 // Firebase Packages
+export 'package:firebase_auth/firebase_auth.dart';
+export 'package:firebase_core/firebase_core.dart';
 
-// OnBoarding Screen
 
-// Login Screen
+// Application UI Packages
+  // Splash Screen
+export 'package:flutter_native_splash/flutter_native_splash.dart';
+  // OnBoarding Screen
 
-// Home Screen
+  // Login Screen
+export 'package:rentndeal/features/Authentication/screen/EmailVerify/verify_email.dart';
+
+  // Location
+export 'package:rentndeal/features/location/screen/first_location.dart';
+
+  // Home Screen
 export 'package:rentndeal/features/home/screen/home.dart';
 export 'package:rentndeal/features/home/screen/navigation_menu.dart';
 export 'package:rentndeal/features/home/controller/homee_controller.dart';
@@ -183,3 +198,18 @@ export 'package:rentndeal/features/common_function/layouts/grid_view_layout.dart
 export 'package:rentndeal/features/category/screen/sub_category.dart';
 
 // Chat Screen
+
+
+// Application Backend Service
+export 'package:rentndeal/backend_services/repositories/user_repository.dart';
+export 'package:rentndeal/backend_services/repositories/authentication_repository.dart';
+
+
+
+
+// Helper Functions
+export 'package:rentndeal/helpers/exceptions/format_exception.dart';
+export 'package:rentndeal/helpers/local_storage/storage_utility.dart';
+export 'package:rentndeal/helpers/exceptions/platform_exceptions.dart';
+export 'package:rentndeal/helpers/exceptions/firebase_exceptions.dart';
+export 'package:rentndeal/helpers/exceptions/firebase_auth_exceptions.dart';

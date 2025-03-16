@@ -1,9 +1,9 @@
-import 'package:flutter/foundation.dart';
 import 'package:rentndeal/constants/consts.dart';
 import 'package:rentndeal/features/Authentication/controller/user_controller.dart';
 import 'package:rentndeal/features/location/controller/location_controller.dart';
 
 class LocationScreen extends StatelessWidget {
+  //final bool userlocation;
   const LocationScreen({super.key});
 
   @override
@@ -23,8 +23,6 @@ class LocationScreen extends StatelessWidget {
           locationController.fetchPredictions(input);
         },),
         const SizedBox(height: CSizes.spaceBtwSections),
-
-
 // Current Location Button
         const Divider(height: 0.5, thickness: 0.5,color: fontGrey),
         Padding(

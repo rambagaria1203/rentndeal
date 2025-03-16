@@ -1,17 +1,17 @@
 import 'package:rentndeal/constants/consts.dart';
 
-class BrandTitleWithVerifiedIcon extends StatelessWidget {
-  const BrandTitleWithVerifiedIcon({
+class ProductLocationInWidget extends StatelessWidget {
+  const ProductLocationInWidget({
     super.key,
     this.textColor,
     this.maxLines = 1,
-    required this.title,
+    required this.location,
     this.iconColor = CColors.primary,
     this.textAlign = TextAlign.center,
     this.brandTextSize = TextSizes.small,
   });
 
-  final String title;
+  final String location;
   final int maxLines;
   final Color? textColor, iconColor;
   final TextAlign textAlign;
@@ -22,17 +22,22 @@ class BrandTitleWithVerifiedIcon extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
+        const Icon(Iconsax.location, color: CColors.primary, size: CSizes.iconXS),
+        const SizedBox(width: CSizes.xs),
         Flexible(
-          child: BrandTitleText(
-            title: title,
-            color: textColor,
+          child: Text(
+            location,
             maxLines: maxLines,
+            overflow: TextOverflow.ellipsis, // ✅ Truncate if too long
             textAlign: textAlign,
-            brandTextSize: brandTextSize
+            style: TextStyle(
+              fontSize: 12,
+              color: textColor ?? Colors.black,
+              fontWeight: FontWeight.w500,
+            ),
           ),
         ),
-        const SizedBox(width: CSizes.xs),
-        const Icon(Iconsax.verify, color: CColors.primary, size: CSizes.iconXS,)
+        
       ],
     );
   }

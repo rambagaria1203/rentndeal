@@ -1,7 +1,7 @@
 import 'package:rentndeal/constants/consts.dart';
 import 'package:rentndeal/features/Authentication/controller/user_controller.dart';
 import 'package:rentndeal/features/common_function/loaders/shimmer_effect.dart';
-import 'package:rentndeal/features/location/screen/location.dart';
+import 'package:rentndeal/features/location/screen/main_location.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({

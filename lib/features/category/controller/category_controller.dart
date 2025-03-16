@@ -8,10 +8,18 @@ import 'package:rentndeal/features/common_function/loaders/loader.dart';
 class CategoryController extends GetxController {
   static CategoryController get instance => Get.find();
 
+
+//----------------------------------------------VARIABLES (HOME & CATEGORY SCREEN)& INSTANCE CALLING----------------------------------------------------------//
   final isLoading = false.obs;
   final _categoryRepository = Get.put(CategoryRepository());
   RxList<CategoryModel> allCategories = <CategoryModel>[].obs;
   RxList<CategoryModel> featuredCategories = <CategoryModel>[].obs;
+
+
+//-------------------------------------------------VARIABLES (UPLOAD PRODUCT SCREEN)----------------------------------------------------------//
+  RxString selectedCategory = "".obs;
+  RxString selectedSubcategory = "".obs;
+  RxList<CategoryModel> subcategories = <CategoryModel>[].obs;
 
   @override
   void onInit() {
@@ -19,26 +27,30 @@ class CategoryController extends GetxController {
     super.onInit();
   }
 
-  // Load Category data
+
+//----------------------------------------------------------FETCH CATEGORIES---------------------------------------------------------------------//
   Future<void> fetchCategories() async {
     try {
-      // Show loader while loading categories
       isLoading.value = true;
-
-      // Fetch categories from data source (Firestore, API, ect.)
       final categories = await _categoryRepository.getAllCategories();
-
-      // Update the categories List
       allCategories.assignAll(categories);
-
-      // Filter featured categories
       featuredCategories.assignAll(allCategories.where((category) => category.isFeatured && category.parentId.isEmpty).take(4).toList());
-
     } catch (e) {
       Loaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     } finally {
-      // Remove Loader
       isLoading.value = false;
+    }
+  }
+
+
+//----------------------------------------------FETCH SUBCATEGORIES BASED ON CATEGORY ID----------------------------------------------------------//
+  Future<void> fetchSubcategories(String categoryId) async{
+    try {
+      selectedCategory.value = categoryId;
+      final subCategoriesList = await _categoryRepository.getSubCategories(categoryId);
+      subcategories.assignAll(subCategoriesList);
+    } catch (e) {
+      Loaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     }
   }
 
@@ -53,7 +65,8 @@ class CategoryController extends GetxController {
     }
   }
 
-  // Get category or sub-category Products.
+
+//----------------------------------------------------GET CATEGORY PRODUCTS--------------------------------------------------------------------//
   Future<List<ProductModel>> getCategoryProducts({required String categoryName, int limit = 4}) async {
     try{
     final products = await ProductRepository.instance.getProductsForCategory(categoryName: categoryName, limit: limit);
@@ -64,9 +77,11 @@ class CategoryController extends GetxController {
     }
   }
 
+
+//----------------------------------------------------GET SUB CATEGORY PRODUCTS---------------------------------------------------------------//
   Future<List<ProductModel>> getSubCategoryProducts({required String categoryName, int limit = 4}) async {
     try{
-    final products = await ProductRepository.instance.getProductsForSubCategory(categoryName: categoryName, limit: limit);
+    final products = await ProductRepository.instance.getProductsForSubCategory(subcategoryName: categoryName, limit: limit);
     return products;
   } catch (e) {
     Loaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
