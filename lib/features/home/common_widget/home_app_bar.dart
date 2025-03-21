@@ -1,5 +1,6 @@
 import 'package:rentndeal/constants/consts.dart';
 import 'package:rentndeal/features/Authentication/controller/user_controller.dart';
+import 'package:rentndeal/features/common_function/loaders/loader.dart';
 import 'package:rentndeal/features/common_function/loaders/shimmer_effect.dart';
 import 'package:rentndeal/features/location/screen/main_location.dart';
 
@@ -40,7 +41,7 @@ class HomeAppBar extends StatelessWidget {
     actions: [
       Stack(
         children: [
-          IconButton(onPressed: (){}, icon: const Icon(Iconsax.notification, color: CColors.white)),
+          IconButton(onPressed: ()=> Loaders.errorSnackBar(title: "This feature is currently unavailable. Sorry for the inconvenience."), icon: const Icon(Iconsax.notification, color: CColors.white)),
           Positioned(
             right: 0,
             child: Container(

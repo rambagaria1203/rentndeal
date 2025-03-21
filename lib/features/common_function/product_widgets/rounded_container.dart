@@ -1,4 +1,3 @@
-import 'package:rentndeal/constants/colors.dart';
 import 'package:rentndeal/constants/consts.dart';
 
 class RoundedContainer extends StatelessWidget {

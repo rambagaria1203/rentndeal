@@ -1,4 +1,3 @@
-import 'package:rentndeal/backend_services/repositories/user_repository.dart';
 import 'package:rentndeal/constants/consts.dart';
 import 'package:rentndeal/features/Authentication/controller/user_controller.dart';
 import 'package:rentndeal/features/common_function/loaders/loader.dart';

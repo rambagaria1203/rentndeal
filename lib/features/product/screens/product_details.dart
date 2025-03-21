@@ -1,6 +1,7 @@
 import 'package:readmore/readmore.dart';
 import 'package:rentndeal/backend_services/models/product_model.dart';
 import 'package:rentndeal/constants/consts.dart';
+import 'package:rentndeal/features/Authentication/controller/user_controller.dart';
 import 'package:rentndeal/features/product/screens/product_reviews.dart';
 import 'package:rentndeal/features/product/widget/chat_with_seller.dart';
 import 'package:rentndeal/features/product/widget/product_location.dart';
@@ -94,7 +95,7 @@ class ProductDetail extends StatelessWidget {
         ),
       ),
       /// Static Button at Bottom
-      bottomNavigationBar: SellerChatButton(sellerName: product.productSeller),
+      bottomNavigationBar: SellerChatButton(sellerName: product.productSeller, sellerUserId: product.productSellerId, currentUserId: UserController.instance.user.value.id,),
     );
   }
 }

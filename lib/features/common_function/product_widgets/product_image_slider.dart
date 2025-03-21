@@ -26,11 +26,15 @@ class ProductImageSlider extends StatelessWidget {
                 final image = controller.selectedProductImage.value;
                 return GestureDetector(
                   onTap: () => controller.showEnlargedImage(image),
-                  child: CachedNetworkImage(
-                    imageUrl: image,
-                    progressIndicatorBuilder: (_, __, downloadProgress) =>
-                      CircularProgressIndicator(value: downloadProgress.progress, color: CColors.primary,),
-                    ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(CSizes.productImageRadius),
+                    child: CachedNetworkImage(
+                      imageUrl: image,
+                      progressIndicatorBuilder: (_, __, downloadProgress) =>
+                        CircularProgressIndicator(value: downloadProgress.progress, color: CColors.primary,),
+                      errorWidget: (_, __, ___) => const Icon(Icons.broken_image, size: 50, color: Colors.red),
+                      ),
+                  ),
                 );
               }
               )),
@@ -40,7 +44,8 @@ class ProductImageSlider extends StatelessWidget {
             Positioned(
               right: 0, bottom: 30, left: CSizes.defaultSpace,
               child: SizedBox(
-                height: 80,
+                //height: 80,
+                height: 60,
                 child: ListView.separated(itemCount: images.length, shrinkWrap: true, scrollDirection: Axis.horizontal,
                 physics: const AlwaysScrollableScrollPhysics(),
                 separatorBuilder: (_, __) => const SizedBox(width: CSizes.spaceBtwItems), 
@@ -48,12 +53,13 @@ class ProductImageSlider extends StatelessWidget {
                   () {
                     final imageSelected = controller.selectedProductImage.value == images[index];
                     return RoundedProductImages(
-                    width: 80,
+                    width: 60,
+                    //width: 80,
                     isNetworkImage: true,
                     backgroundColor: isDark ? CColors.dark : CColors.white,
                     onPressed: () => controller.selectedProductImage.value = images[index],
                     border: Border.all(color: imageSelected ? CColors.primary : Colors.transparent),
-                    padding: const EdgeInsets.all(CSizes.sm),
+                    //padding: const EdgeInsets.all(CSizes.sm),
                     imageUrl: images[index]
                   );
                   }

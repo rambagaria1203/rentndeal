@@ -1,5 +1,4 @@
 //import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
 import 'package:rentndeal/constants/consts.dart';
 import 'package:rentndeal/features/common_function/loaders/shimmer_effect.dart';
 

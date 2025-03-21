@@ -5,7 +5,6 @@ import 'package:rentndeal/features/common_function/loaders/vertical_product_shim
 import 'package:rentndeal/features/product/controller/all_products_controller.dart';
 import 'package:rentndeal/features/product/widget/filter_products.dart';
 import 'package:rentndeal/helpers/general_functions/cloud_helper_function.dart';
-//import 'package:rentndeal/features_ui/product/controller/product_controller.dart';
 
 class AllProductScreen extends StatelessWidget {
   const AllProductScreen({super.key, required this.title, this.query, this.futureMethod});

@@ -1,8 +1,5 @@
-import 'package:rentndeal/backend_services/data/dummy_data.dart';
-import 'package:rentndeal/backend_services/repositories/authentication_repository.dart';
-import 'package:rentndeal/backend_services/repositories/category_repository.dart';
 import 'package:rentndeal/constants/consts.dart';
-import 'package:rentndeal/features/location/screen/first_location.dart';
+import 'package:rentndeal/features/common_function/loaders/loader.dart';
 import 'package:rentndeal/features/setting/common_widget/user_profile_tile.dart';
 import 'package:rentndeal/features/vendor_page/screen/my_product.dart';
 
@@ -11,7 +8,7 @@ class SettingS extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final categoryData = CategoryRepository.instance;
+    //final categoryData = CategoryRepository.instance;
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -41,15 +38,15 @@ class SettingS extends StatelessWidget {
                   SettingMenuTile(title: 'My Address', icon: Iconsax.safe_home, subtitle: 'Set shopping delivery address', onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => const AuthLocationScreen(),));},),
                   SettingMenuTile(title: 'My Wishlist', icon: Iconsax.safe_home, subtitle: 'Set shopping delivery address', onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => const FavouriteScreen(),));},),
                   SettingMenuTile(title: 'My Products', icon: Iconsax.safe_home, subtitle: 'Set shopping delivery address', onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => const MyProductScreen(),));},),
-                  SettingMenuTile(title: 'Notification', icon: Iconsax.notification, subtitle: 'Set any kind of notification message', onTap: (){},),
-                  SettingMenuTile(title: 'Account Privacy', icon: Iconsax.security_card, subtitle: 'Manage data usage and connected accounts', onTap: (){},),
+                  SettingMenuTile(title: 'Notification', icon: Iconsax.notification, subtitle: 'Set any kind of notification message', onTap: ()=> Loaders.errorSnackBar(title: "This feature is currently unavailable. Sorry for the inconvenience."),),
+                  SettingMenuTile(title: 'Account Privacy', icon: Iconsax.security_card, subtitle: 'Manage data usage and connected accounts', onTap: ()=> Loaders.errorSnackBar(title: "This feature is currently unavailable. Sorry for the inconvenience."),),
 
 
                   /// -- App Setting
                   const SizedBox(height: CSizes.spaceBtwItems),
                   const SectionHeading(title: 'App Setting', showActionButton: false),
                   const SizedBox(height: CSizes.spaceBtwItems),
-                  SettingMenuTile(title: 'Load Data', icon: Iconsax.document_upload, subtitle: 'Upload Data to your Cloud Firebase', onTap: () async {await categoryData.uploadDummyData(DummyData.categories);},),
+                  SettingMenuTile(title: 'Load Data', icon: Iconsax.document_upload, subtitle: 'Upload Data to your Cloud Firebase', onTap: ()=> Loaders.errorSnackBar(title: "This feature is currently unavailable. Sorry for the inconvenience.")),
                   SettingMenuTile(title: 'Geolocation', icon: Iconsax.location, subtitle: 'Set recommendation based on location', trailing: Switch(value: true, onChanged: (value) {}),),
                   
                   /// --- Logout Button

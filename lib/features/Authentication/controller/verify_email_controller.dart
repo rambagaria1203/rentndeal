@@ -1,7 +1,5 @@
 import 'dart:async';
 
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:rentndeal/backend_services/repositories/authentication_repository.dart';
 import 'package:rentndeal/constants/consts.dart';
 import 'package:rentndeal/features/common_function/loaders/loader.dart';
 

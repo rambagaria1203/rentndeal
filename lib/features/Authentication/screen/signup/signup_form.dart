@@ -1,4 +1,3 @@
-import 'package:get/get.dart';
 import 'package:rentndeal/constants/consts.dart';
 import 'package:rentndeal/helpers/general_functions/validator.dart';
 import 'package:rentndeal/features/Authentication/controller/signup_controller.dart';

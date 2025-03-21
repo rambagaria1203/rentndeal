@@ -1,4 +1,3 @@
-import 'package:rentndeal/backend_services/repositories/authentication_repository.dart';
 import 'package:rentndeal/constants/consts.dart';
 import 'package:rentndeal/features/Authentication/controller/verify_email_controller.dart';
 

@@ -1,4 +1,3 @@
-import 'package:get_storage/get_storage.dart';
 import 'package:rentndeal/constants/consts.dart';
 
 class OnBoardingController extends GetxController {

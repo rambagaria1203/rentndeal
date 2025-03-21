@@ -1,10 +1,7 @@
-import 'package:rentndeal/backend_services/repositories/authentication_repository.dart';
-import 'package:rentndeal/backend_services/repositories/user_repository.dart';
 import 'package:rentndeal/backend_services/models/user_model.dart';
 import 'package:rentndeal/constants/consts.dart';
 import 'package:rentndeal/helpers/general_functions/network_manager.dart';
 import 'package:rentndeal/helpers/popups/full_screen_loader.dart';
-import 'package:rentndeal/features/Authentication/screen/EmailVerify/verify_email.dart';
 
 import 'package:rentndeal/features/common_function/loaders/loader.dart';
 

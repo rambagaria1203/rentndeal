@@ -44,6 +44,27 @@ class UserRepository extends GetxController {
     }
   }
 
+
+// Function to fetch userdetails based on user ID.(Used for Product Details to ChatRoom)
+  Future<UserModel> fetchUserDetailsByUserId({ required String userId}) async {
+    try {
+      final documentSnapshot = await _db.collection("users").doc(userId).get();
+      if (documentSnapshot.exists) {
+        return UserModel.fromSnapshot(documentSnapshot);
+      } else {
+        return UserModel.empty();
+      }
+    } on FirebaseException catch (e) {
+      throw CustomFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const CustomFormatException();
+    } on PlatformException catch (e) {
+      throw CustomPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
+
   // Function to update user data in Firestore.
   Future<void> updateUserDetails (UserModel updatedUser) async {
     try {

@@ -1,10 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/services.dart';
 import 'package:rentndeal/backend_services/models/category_model.dart';
 import 'package:rentndeal/backend_services/services/firebase_storage_service.dart';
 import 'package:rentndeal/constants/consts.dart';
-import 'package:rentndeal/helpers/exceptions/firebase_exceptions.dart';
-import 'package:rentndeal/helpers/exceptions/platform_exceptions.dart';
 
 class CategoryRepository extends GetxController {
   static CategoryRepository get instance => Get.find();

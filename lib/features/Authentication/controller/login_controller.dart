@@ -1,5 +1,3 @@
-import 'package:get_storage/get_storage.dart';
-import 'package:rentndeal/backend_services/repositories/authentication_repository.dart';
 import 'package:rentndeal/constants/consts.dart';
 import 'package:rentndeal/helpers/general_functions/network_manager.dart';
 import 'package:rentndeal/helpers/popups/full_screen_loader.dart';

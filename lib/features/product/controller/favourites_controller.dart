@@ -4,7 +4,6 @@ import 'package:rentndeal/backend_services/models/product_model.dart';
 import 'package:rentndeal/backend_services/repositories/product_repository.dart';
 import 'package:rentndeal/constants/consts.dart';
 import 'package:rentndeal/features/common_function/loaders/loader.dart';
-import 'package:rentndeal/helpers/local_storage/storage_utility.dart';
 
 class FavouritesController extends GetxController {
   static FavouritesController get instance => Get.find();

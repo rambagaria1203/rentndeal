@@ -161,15 +161,36 @@ class ProductRepository extends GetxController {
 
 
 //-------------------------------------------------FETCH ALL PRODUCTS BASED ON USER ID----------------------------------------------------------//
-  Stream<QuerySnapshot> getProductsByUserId (String userId) {
+  Future<List<ProductModel>> getProductsByUserId (String userId) async{
     try {
-      return  _db.collection('products').where('Seller ID', isEqualTo: userId).snapshots();
-      //return snapshot.docs.map((product) => ProductModel.fromSnapshot(product)).toList();
+      final snapshot =  await _db.collection('products').where('Seller ID', isEqualTo: userId).get();
+      return snapshot.docs.map((QuerySnapshot) => ProductModel.fromSnapshot(QuerySnapshot)).toList();
     } catch (e) {
       throw 'Something went wrong. Please try again';
     }
   }
 
+
+//-------------------------------------------------DELETE PRODUCT FROM FIRESTORE & STORAGE----------------------------------------------------------//
+  Future<void> deleteProduct(String productId, List<String> imageUrls) async {
+    try {
+      await Future.wait(imageUrls.map((imageUrl) => _deleteImageFromStorage(imageUrl)));
+      await _db.collection('products').doc(productId).delete();
+    } catch (e) {
+      throw Exception('Failed to delete product: $e');
+    }
+  }
+
+
+//-------------------------------------------------DELETE IMAGE FROM FIREBASE STORAGE----------------------------------------------------------//
+  Future<void> _deleteImageFromStorage(String imageUrl) async {
+    try {
+      Reference storageRef = _storage.refFromURL(imageUrl);
+      await storageRef.delete();
+    } catch (e) {
+      print("❌ Error deleting image: $e");
+    }
+  }
 
 //------------------------------------------------------------THE END---------------------------------------------------------------------------//
 }
