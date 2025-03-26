@@ -1,9 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:rentndeal/constants/consts.dart';
-import 'package:rentndeal/constants/sizes.dart';
-import 'package:rentndeal/features/Chat_screen/controller/chat_controller.dart';
-import 'package:rentndeal/features/Chat_screen/screen/chat_screen.dart';
+import 'package:rentndeal/features/chat/controller/chat_controller.dart';
+import 'package:rentndeal/features/chat/screen/chat_screen.dart';
 
 class SellerChatButton extends StatelessWidget {
   final String sellerName;

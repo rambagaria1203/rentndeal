@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:rentndeal/backend_services/models/chatroom_model.dart';
 import 'package:rentndeal/backend_services/models/user_model.dart';
 import 'package:rentndeal/constants/images.dart';
-import 'package:rentndeal/features/Chat_screen/screen/chat_screen.dart';
+import 'package:rentndeal/features/chat/screen/chat_screen.dart';
 import 'package:rentndeal/features/common_function/custom_appbar/custom_appbar.dart';
 import 'package:rentndeal/features/common_function/image_text_widgets/circular_image.dart';
 import 'package:uuid/uuid.dart';

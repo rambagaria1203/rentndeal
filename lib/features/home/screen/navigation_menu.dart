@@ -1,5 +1,5 @@
 import 'package:rentndeal/constants/consts.dart';
-import 'package:rentndeal/features/Chat_screen/screen/messages_screen.dart';
+import 'package:rentndeal/features/chat/screen/messages_screen.dart';
 import 'package:rentndeal/features/vendor_page/screen/upload_product.dart';
 
 

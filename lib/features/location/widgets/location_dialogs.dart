@@ -1,5 +1,4 @@
 import 'package:rentndeal/constants/consts.dart';
-import 'package:rentndeal/features/location/controller/location_controller.dart';
 
 class LocationDialogs {
 

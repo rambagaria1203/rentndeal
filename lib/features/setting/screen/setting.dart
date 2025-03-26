@@ -35,7 +35,7 @@ class SettingS extends StatelessWidget {
                   const SectionHeading(title: 'Account Setting', showActionButton: false,),
                   const SizedBox(height: CSizes.spaceBtwItems,),
 
-                  SettingMenuTile(title: 'My Address', icon: Iconsax.safe_home, subtitle: 'Set shopping delivery address', onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => const AuthLocationScreen(),));},),
+                  //SettingMenuTile(title: 'My Address', icon: Iconsax.safe_home, subtitle: 'Set shopping delivery address', onTap: (){Get.to(() => const AuthLocationScreen(), binding: LocationBinding());},),
                   SettingMenuTile(title: 'My Wishlist', icon: Iconsax.safe_home, subtitle: 'Set shopping delivery address', onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => const FavouriteScreen(),));},),
                   SettingMenuTile(title: 'My Products', icon: Iconsax.safe_home, subtitle: 'Set shopping delivery address', onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => const MyProductScreen(),));},),
                   SettingMenuTile(title: 'Notification', icon: Iconsax.notification, subtitle: 'Set any kind of notification message', onTap: ()=> Loaders.errorSnackBar(title: "This feature is currently unavailable. Sorry for the inconvenience."),),

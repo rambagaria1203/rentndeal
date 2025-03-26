@@ -1,13 +1,12 @@
 import 'package:rentndeal/constants/consts.dart';
-import 'package:rentndeal/features/location/screen/main_location.dart';
-import 'package:rentndeal/features/location/controller/location_controller.dart';
+import 'package:rentndeal/features/location/screens/main_location.dart';
 
 class AuthLocationScreen extends StatelessWidget {
   const AuthLocationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final locationController = Get.put(LocationController());
+    final locationController = Get.find<LocationController>();
     precacheImage(const AssetImage(CImages.locationblue), context);
     return Scaffold(
       body: Stack(
@@ -43,7 +42,28 @@ class AuthLocationScreen extends StatelessWidget {
                     const SizedBox(height: CSizes.spaceBtwSections),
               
                     //Button
-                    SizedBox(width: double.infinity, child: ElevatedButton(onPressed: ()async {await locationController.fetchCurrentLocation(context);}, child: const Text('Current Location')),),
+                    SizedBox(width: double.infinity, child: ElevatedButton(onPressed: ()async {
+                      LocationDialogs.showLoadingDialog(context);
+
+                      final (status, locationData) = await locationController.fetchCurrentLocation();
+                      Navigator.pop(context);
+                      switch (status) {
+                        case LocationStatus.success:
+                          LocationDialogs.showCurrentLocationDialog(context, locationData!['locationName'], locationData['geoPoint'],);
+                          break;
+                        case LocationStatus.locationServiceDisabled:
+                          LocationDialogs.showLocationServiceDialog(context);
+                          break;
+                        case LocationStatus.permissionDenied:
+                        case LocationStatus.permissionDeniedForever:
+                          LocationDialogs.showLocationPermissionDialog(context);
+                          break;
+                        case LocationStatus.error:
+                        LocationDialogs.showErrorDialog(context);
+                          break;
+                      }
+                    }, 
+                    child: const Text('Current Location')),),
                     const SizedBox(height: CSizes.spaceBtwItems * 1.5),
                     GestureDetector(
                       onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => const LocationScreen()));},

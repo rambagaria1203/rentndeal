@@ -2,7 +2,7 @@ import 'package:rentndeal/constants/consts.dart';
 import 'package:rentndeal/features/Authentication/controller/user_controller.dart';
 import 'package:rentndeal/features/common_function/loaders/loader.dart';
 import 'package:rentndeal/features/common_function/loaders/shimmer_effect.dart';
-import 'package:rentndeal/features/location/screen/main_location.dart';
+import 'package:rentndeal/features/location/screens/main_location.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({
@@ -32,10 +32,7 @@ class HomeAppBar extends StatelessWidget {
             ),
           )
         ] 
-      ).onTap(() {Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const LocationScreen()),
-    ); }),
+      ).onTap(() {Get.to(() => const LocationScreen(), binding: LocationBinding());}),
     //-------
     // Notification Icon
     actions: [
