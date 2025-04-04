@@ -1,5 +1,6 @@
 import 'dart:core';
 import 'package:rentndeal/constants/consts.dart';
+import 'package:rentndeal/features/Authentication/controller/user_controller.dart';
 
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();
@@ -27,6 +28,9 @@ class AuthenticationRepository extends GetxController {
         await LocalStorage.init(user.uid);
 
         // Extra
+        if (!Get.isRegistered<UserRepository>()) Get.put(UserRepository());
+        if (!Get.isRegistered<UserController>()) Get.put(UserController());
+        await UserController.instance.fetchUserRecord();
         final isLocationSet = deviceStorage.read('isLocationSet') ?? false;
         if (isLocationSet) {
         Get.offAll(() => const NavigationMenu());

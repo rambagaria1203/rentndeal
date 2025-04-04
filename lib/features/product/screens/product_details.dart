@@ -95,7 +95,15 @@ class ProductDetail extends StatelessWidget {
         ),
       ),
       /// Static Button at Bottom
-      bottomNavigationBar: SellerChatButton(sellerName: product.productSeller, sellerUserId: product.productSellerId, currentUserId: UserController.instance.user.value.id,),
+      bottomNavigationBar: product.productSellerId == UserController.instance.user.value.id
+          ? Padding(
+              padding: const EdgeInsets.all(CSizes.defaultSpace),
+              child: Container(height: 55, decoration: BoxDecoration(color: Colors.grey.shade300, borderRadius: BorderRadius.circular(30)),
+              alignment: Alignment.center,
+              child: Text("You are the owner of this product", style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w600),),
+              ), 
+            )
+          :  SellerChatButton(product: product, userId: UserController.instance.user.value.id),
     );
   }
 }

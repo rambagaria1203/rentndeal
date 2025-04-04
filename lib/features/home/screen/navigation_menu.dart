@@ -1,5 +1,6 @@
 import 'package:rentndeal/constants/consts.dart';
 import 'package:rentndeal/features/chat/screen/messages_screen.dart';
+import 'package:rentndeal/features/chat/screen/new_chat_screen.dart';
 import 'package:rentndeal/features/vendor_page/screen/upload_product.dart';
 
 
@@ -40,7 +41,7 @@ class NavigationMenu extends StatelessWidget {
 class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
 
-  final screens = [const HomeS(), const CategoryS(), const UploadProductScreen(), const MessagesScreen(),const SettingS(),];
+  final screens = [const HomeS(), const CategoryS(), const UploadProductScreen(), const NewChatScreen(),const SettingS(),];
 }
 
 
