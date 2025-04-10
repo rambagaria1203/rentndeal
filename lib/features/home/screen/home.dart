@@ -5,6 +5,8 @@ import 'package:rentndeal/features/home/common_widget/home_app_bar.dart';
 import 'package:rentndeal/features/home/common_widget/home_categories.dart';
 import 'package:rentndeal/features/product/controller/product_controller.dart';
 import 'package:rentndeal/features/product/screens/all_products.dart';
+import 'package:rentndeal/features/searchbar/bindings/searchbar_binding.dart';
+import 'package:rentndeal/features/searchbar/screens/searchbar_ui.dart';
 
 class HomeS extends StatelessWidget {
   const HomeS({super.key});
@@ -16,18 +18,18 @@ class HomeS extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const BackgroundScreen(
+            BackgroundScreen(
               child: Column(
                 children: [
-                  HomeAppBar(),
-                  SizedBox(height: CSizes.spaceBtwItems),
+                  const HomeAppBar(),
+                  const SizedBox(height: CSizes.spaceBtwItems),
 
                   // Search Bar 
-                  SearchBarContainer(hintText: "Search in Store",),
-                  SizedBox(height: CSizes.spaceBtwSections),
+                  SearchBarContainer(hintText: "Search in Store",readOnly: true, onTap: () => Get.to(() => const SearchBarScreen(), binding: SearchBarBinding()),),
+                  const SizedBox(height: CSizes.spaceBtwSections),
 
                   // Categories Heading
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.only(left: CSizes.defaultSpace), 
                     child: Column(
                       children: [
@@ -39,7 +41,7 @@ class HomeS extends StatelessWidget {
                       ]
                   ),
                   ),
-                  SizedBox(height: CSizes.spaceBtwSections),
+                  const SizedBox(height: CSizes.spaceBtwSections),
                 ],
               )
             ),

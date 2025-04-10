@@ -156,7 +156,6 @@ class _MessagesScreenState extends State<NewMessagesScreen> {
   }
   @override
   void dispose() {
-    print("****************************************************************************************************************************************************************");
     chatController.markUnreadMessagesAsRead(_chatId, widget.userId);
     super.dispose();
   }

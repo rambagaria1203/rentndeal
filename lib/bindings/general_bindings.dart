@@ -14,7 +14,6 @@ class GeneralBindings extends Bindings {
     Get.put(UserController());
     Get.put<ILocationRepository>(LocationRepository());
     Get.put(LocationController(repository: Get.find()));
-    
     Get.put<IChatRepository>(NewChatRepository());
     Get.put(NewChatController(repository: Get.find()));
   }

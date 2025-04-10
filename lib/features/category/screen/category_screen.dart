@@ -1,5 +1,7 @@
 import 'package:rentndeal/constants/consts.dart';
 import 'package:rentndeal/features/category/controller/category_controller.dart';
+import 'package:rentndeal/features/searchbar/bindings/searchbar_binding.dart';
+import 'package:rentndeal/features/searchbar/screens/searchbar_ui.dart';
 
 class CategoryS extends StatelessWidget {
   const CategoryS({super.key});
@@ -25,14 +27,14 @@ class CategoryS extends StatelessWidget {
               //expandedHeight: 440,
               expandedHeight: 150,
               flexibleSpace: Padding(
-                padding: const EdgeInsets.all(CSizes.defaultSpace),
+                padding: const EdgeInsets.all(CSizes.defaultSpace/4),
                 child: ListView(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  children: const [
-                    SizedBox(height: CSizes.spaceBtwItems),
-                    SearchBarContainer(hintText: 'Search in Store', showBorder: true, showBackground: false, padding: EdgeInsets.zero),
-                    SizedBox(height: CSizes.spaceBtwSections),
+                  children: [
+                    const SizedBox(height: CSizes.spaceBtwItems),
+                    SearchBarContainer(hintText: "Search in Store",readOnly: true, onTap: () => Get.to(() => const SearchBarScreen(), binding: SearchBarBinding()),),
+                    const SizedBox(height: CSizes.spaceBtwSections),
       
                     /// Featured Brands
                     // SectionHeading(title: 'Featured Brands', onPressed: (){}),
@@ -46,8 +48,7 @@ class CategoryS extends StatelessWidget {
                   ],
                 )
               ),
-
-
+              
               /// Tabs -- 
               bottom: CustomTabBar(
                 tabs: categories.map((category) => Tab(child: Text(category.name))).toList()),

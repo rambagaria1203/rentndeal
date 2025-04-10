@@ -7,13 +7,16 @@ class SearchBarContainer extends StatelessWidget {
     this.showBackground = true,
     this.showBorder = true,
     this.onChanged,
+    this.onTap,
+    this.readOnly = false,
     this.borderColor = CColors.grey,
     this.padding = const EdgeInsets.symmetric(horizontal: CSizes.defaultSpace),
   });
 
   final String hintText;
   final Color borderColor;
-  final bool showBackground, showBorder;
+  final GestureTapCallback? onTap;
+  final bool showBackground, showBorder, readOnly;
   final ValueChanged<String>? onChanged; // Callback to handle input changes
   final EdgeInsetsGeometry padding;
 
@@ -24,6 +27,8 @@ class SearchBarContainer extends StatelessWidget {
     return Padding(
       padding: padding,
       child: TextField(
+        readOnly: readOnly,
+        onTap: readOnly ? onTap : null,
         onChanged: onChanged, // Handle input
         decoration: InputDecoration(
           hintText: hintText,
